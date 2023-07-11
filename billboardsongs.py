@@ -9,7 +9,7 @@ def makeList(year):
         chart = billboard.ChartData('hot-100', date)
         tracks.update(
             {str(song) for song in chart.entries if str(song) not in tracks})
-    print(*tracks, sep='\n')
+    print(*sorted(tracks), sep='\n')
 
 
 def allSaturdays(year):
