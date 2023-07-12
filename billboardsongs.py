@@ -1,6 +1,9 @@
 from datetime import date, timedelta
 import billboard
 import sys
+import json
+
+AUTH_FILE = 'authorization.json'
 
 
 def makeList(year):
@@ -10,6 +13,12 @@ def makeList(year):
         tracks.update(
             {str(song) for song in chart.entries if str(song) not in tracks})
     print(*sorted(tracks), sep='\n')
+
+
+def loadAuth():
+    with open(AUTH_FILE) as jsonFile:
+        auth = json.loads(jsonFile)
+    return auth
 
 
 def allSaturdays(year):
