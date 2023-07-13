@@ -9,7 +9,7 @@ AUTH_FILE = 'authorization.json'
 
 def makePlaylist(year):
     songs = makeList(year)
-    print('Got songs from chart')
+    print('Collected songs from chart.')
 
     auth = loadAuth()
     sp = spotipy.Spotify(auth_manager=spotipy.oauth2.SpotifyPKCE(
@@ -18,14 +18,14 @@ def makePlaylist(year):
         redirect_uri=auth['redirect_uri']))
 
     uris = findURIs(sp, songs)
-    print('Found URIs')
+    print('Found Spotify URIs.')
 
     user_id = sp.me()['id']
     playlist = sp.user_playlist_create(user_id, str(year))
 
     for n in range(0, len(uris), 100):
         sp.playlist_add_items(playlist_id=playlist['id'], items=uris[n:n + 100])
-    print('Made playlist')
+    print(f'Made playlist {year} for {user_id}.')
 
 
 def findURIs(sp, songs):
