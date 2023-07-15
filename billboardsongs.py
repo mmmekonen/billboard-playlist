@@ -64,5 +64,9 @@ def allSaturdays(year):
 
 
 if __name__ == '__main__':
-    year = int(sys.argv[1])
-    makePlaylist(year)
+    if sys.argv[1] == 'all':
+        for year in range(1958, date.today().year):
+            makePlaylist(year)
+    else:
+        year = int(sys.argv[1])
+        makePlaylist(year)
