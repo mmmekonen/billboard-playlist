@@ -17,7 +17,7 @@ def makePlaylist(year):
         scope=auth['scope'],
         redirect_uri=auth['redirect_uri']))
 
-    uris = findURIs(sp, songs)
+    uris = findURIs(sp, songs, year)
     print('Found Spotify URIs.')
 
     user_id = sp.me()['id']
@@ -28,14 +28,14 @@ def makePlaylist(year):
     print(f'Made playlist {year} for {user_id}.')
 
 
-def findURIs(sp, songs):
+def findURIs(sp, songs, year):
     uris = []
     for song in songs:
         try:
             uris.append(
                 sp.search(q=song, type='track')['tracks']['items'][0]['uri'])
         except IndexError:
-            print(f"Couldn't fetch {song}.")
+            print(f"Couldn't fetch {song} for {year}.")
     return uris
 
 
