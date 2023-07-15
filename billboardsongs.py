@@ -25,7 +25,7 @@ def makePlaylist(year):
 
     for n in range(0, len(uris), 100):
         sp.playlist_add_items(playlist_id=playlist['id'], items=uris[n:n + 100])
-    print(f'Made playlist {year} for {user_id}.')
+    print(f'Made playlist {year} for {sp.me()["display_name"]}.')
 
 
 def findURIs(sp, songs, year):
