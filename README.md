@@ -5,13 +5,13 @@ Autogenerates a Spotify playlist of all the songs that were on the [Billboard Ho
 ## How to use
 Run the following command with YYYY as a four digit code for the year to make a playlist for the specified year
 
-```
+```bash
 python billboardsongs.py <YYYY>
 ```
 
 To make a playlist for all years up to (but not including) the current year, run
 
-```
+```bash
 python billboardsongs.py all
 ```
 
