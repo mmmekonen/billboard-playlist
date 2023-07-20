@@ -3,7 +3,7 @@
 Autogenerates a Spotify playlist of all the songs that were on the [Billboard Hot-100](https://www.billboard.com/charts/hot-100/) weekly charts for a specified year. Some songs on the Billboard Hot-100 chart may not be available on Spotify.
 
 ## How to use
-Run the following command with YYYY as a four digit code for the year to make a playlist for the specified year
+Run the following command with YYYY as a four digit year to make a playlist for the specified year
 
 ```bash
 python billboardsongs.py <YYYY>
